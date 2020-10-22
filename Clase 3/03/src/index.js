@@ -53,7 +53,8 @@ return(
 <div id='contenedor'>
 <h1>Cuanto vale su plata?</h1>
 <form id="form">
-<input type="text" name="" id="" ref={Cambiar}/>
+<label>Ingrese el monto a calcular:</label>
+<input type="text" name="" id="" ref={Cambiar} placeholder='Monto...'/> 
 <label> Elija el Valor del tipo de cambio de referencia:</label>
 <select id="" ref={Valor}>
 <option value="0" selected >Elegir...</option>
