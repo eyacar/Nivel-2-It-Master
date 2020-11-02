@@ -18,8 +18,8 @@ const Libros = () => {
       "https://raw.githubusercontent.com/bvaughn/infinite-list-reflow-examples/master/books.json"
     )
       .then((response) => response.json())
-      .then((paises) => {
-        Setlista(paises);
+      .then((libro) => {
+        Setlista(libro);
         SetPreload(true);
       })
       .catch((err) => console.log(err.message));
