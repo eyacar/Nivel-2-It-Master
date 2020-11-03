@@ -6,11 +6,14 @@ const array = [
    {"Equipo": "Valencia", "PG": 13, "PE": 11, "PP": 11, "GF": 45, "GC": 51,},
    {"Equipo": "Villareal", "PG": 16, "PE": 6, "PP": 12, "GF": 54, "GC": 44,},
    {"Equipo": "Real Madrid", "PG": 23, "PE": 8, "PP": 3, "GF": 62, "GC": 21,},
+   {"Equipo": "Sacachispas", "PG": 23, "PE": 8, "PP": 3, "GF": 59, "GC": 21,}
 ];
 
 const puntajes =[]
 const campeones =[]
 const Goles =[]
+const MejoresEquipos =[]
+const MejorDif = []
 
 
 for (equipos of array){
@@ -24,4 +27,11 @@ for (puntaje of puntajes){ if(Math.max.apply(null, puntajes)=== puntaje){campeon
 
 if (campeones.length === 1){
    console.log('Campeon: '+array[puntajes.indexOf(Math.max.apply(null, puntajes))].Equipo+'| Puntos: '+Math.max.apply(null, puntajes))}
+else{
+   for(i in puntajes){
+   if(puntajes[i]===campeones[0]){MejoresEquipos.push(array[i].Equipo);MejorDif.push(Goles[i])
+   }}
+}
+
+console.log('EL equipo campeon es: '+MejoresEquipos[MejorDif.indexOf(Math.max.apply(null, MejorDif))])
 
