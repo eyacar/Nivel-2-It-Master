@@ -13,6 +13,16 @@ function cierre(){
     return cierre
 }
 
+function remplazar(texto){
+  let string = texto.split(' ').join('_')
+  return string
+}
+
+function volver(texto){
+  let string = texto.split('_').join(' ')
+  return string
+}
+
 function fecha(f){
     let a = f.slice(0,4)
     let m = f.slice(5,7)
@@ -35,9 +45,10 @@ por eso puse el length de los show para calcular la cantidad de la primera pagin
     for (show of json.tv_shows){shows += `<a href=/show/${show.permalink}><li>${show.name}</li></a>`;
     cadenas.push(show.network);
     }
+
     for (i in cadenas.sort()){
-        if (cadenas[i]!== cadenas[i-1])
-        cadena+=`<a href=/cadenas/${cadenas[i]}><li>${cadenas[i]}</li></a>`}
+        if (cadenas[i]!== cadenas[i-1]){
+        cadena+=`<a href=/cadenas/${remplazar(cadenas[i])}><li>${cadenas[i]}</li></a>`}}
     
     
     res.send(apertura('Most Popular TV Shows',`<img src="/img/tvShowsLogo.png"><p>Aqui podras ver el listado de los ${json.tv_shows.length} shows mas populares, haz click en la que mas te gusta:<p>`)+`<ul>${shows}</ul>`+`
@@ -131,9 +142,9 @@ app.get('/show/:permalink/', function(req, res){
     
     let series =""
     let cantSeries = 0
-    for (serie of json.tv_shows){if(serie.network=== req.params.network){series+=`<li>${serie.name}</li>`;cantSeries++}}  
+    for (serie of json.tv_shows){if(serie.network=== req.params.network || serie.network=== volver(req.params.network)){series+=`<li>${serie.name}</li>`;cantSeries++}}  
     
-    res.status(200).send(apertura(`${req.params.network}`, `<ul> ${series}</ul><h5>Esta cadena tuvo ${cantSeries} series en los mas populares</h5>`)+
+    res.status(200).send(apertura(`${volver(req.params.network)}`, `<ul> ${series}</ul><h5>Esta cadena tuvo ${cantSeries} series en los mas populares</h5>`)+
     `
     <form action=/ style="margin: 3% auto">
     <input type="submit" value="Home" />
