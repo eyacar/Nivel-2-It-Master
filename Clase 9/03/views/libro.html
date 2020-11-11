@@ -34,7 +34,7 @@
     {% endif %}
 
     <h2>Descripción:</h2>
-    {{ descripcion }}
+    {{ descripcion | safe}}
     <h2>Cantidad de paginas: {{ libro.volumeInfo.pageCount }}</h2>
     <h2>Editorial: {{ libro.volumeInfo.publisher }}</h2>
 <a href="/">Home</a>
