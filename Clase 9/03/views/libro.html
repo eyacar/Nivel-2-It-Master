@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ libro.volumeInfo.title }}</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>        
+    
+<div>
+    <h2>Titulo: {{ libro.volumeInfo.title }}</h2>
+    {% if libro.volumeInfo.subtitle %}
+    <h2>Subtitulo: {{ libro.volumeInfo.subtitle }}</h2>
+    {% endif %}
+    {% if libro.volumeInfo.imageLinks.smallThumbnail %}
+    <h2>Tapa:</h2> 
+    <img src="{{ libro.volumeInfo.imageLinks.smallThumbnail }}" alt="Tapa">
+    {% endif %}
+    {% if libro.volumeInfo.authors.length >1 %}
+    <h2>Autores:</h2>
+    <ul> 
+    {% for autores in libro.volumeInfo.authors %}
+    <li>{{ autores }}</li>
+    {% endfor %}
+    </ul>
+    {% elif libro.volumeInfo.authors.length ===1 %}
+    <h2>Autor:</h2>
+    <ul> 
+    <li>{{ libro.volumeInfo.authors[0] }}</li>
+    </ul>
+    {% else %}
+    <h2>Autor anonimo</h2>
+    {% endif %}
+
+    <h2>Descripción:</h2>
+    {{ descripcion }}
+    <h2>Cantidad de paginas: {{ libro.volumeInfo.pageCount }}</h2>
+    <h2>Editorial: {{ libro.volumeInfo.publisher }}</h2>
+<a href="/">Home</a>
+</div> 
+</body>
+</html>

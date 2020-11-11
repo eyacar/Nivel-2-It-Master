@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actor id: {{ id }}</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>        
+    
+<div>
+    {% for actor in actores %}
+    {% if actor.objectID === id %}
+    <h2>Actor: {{ actor.name }}</h2>
+    <h2>Rating: {{ actor.rating }}</h2>
+    {% if actor.alternative_name %}
+    <h2>Nombre Alternativo: {{ actor.alternative_name }}</h2>
+    {% else %}
+    <h2>Este actor no tiene nombre alternativo</h2>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+
+<a href="/">Home</a>
+</div> 
+</body>
+</html>
