@@ -1,0 +1,23 @@
+{
+  "name": "node01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "nunjucks": "^3.2.2",
+    "request": "^2.88.2"
+  }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>turnos</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>        
+    
+<div>
+    <h1>Sus datos son:</h1>
+    <h2>Patente: {{ patente }}</h2>
+    <h2>Año: {{ year }}</h2>
+    <h2>KM: {{ km }}</h2>
+{% if (now-3)>=year or km>=60000 %}
+<h1>Debe hacer la VTV en el maes de {{ mes }}</h1>
+{% else %}
+<h1>Su vehiculo debe contar con al menos 3 años de auntiguedad o poseer mas de 60.000km para hacer la VTV</h1>
+{% endif %}
+<h1><a href="/">Home</a></h1>
+</div> 
+</body>
+</html>

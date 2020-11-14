@@ -1,0 +1,6 @@
+body{
+    background:lightyellow;
+}
+h1,h2{text-align: center;}
+form{width: 20%;margin:3% auto;}
+input{display: block;margin: 2% auto;}

@@ -1,0 +1,9 @@
+<form  method="post" action="/turnos" name="formulario">
+<input type="text" name="patente" placeholder="Patente..." onkeyup="patentes()" required>
+<span id="p"></span>
+<input type="number" onkeyup="years()" name="year" placeholder="Año..." required >
+<span id="y"></span>
+<input type="number" onkeyup="kms()" id="km" name="km" placeholder="KM..." required min="1">
+<span id="k"></span>
+<input type="button" onclick="validar()" value="Turno">
+</form>
