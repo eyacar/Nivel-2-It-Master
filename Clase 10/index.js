@@ -29,7 +29,7 @@ else if(patente.length===7 || patente.length===6){
   i = parseFloat(patente[patente.length - 1])
 }
 res.render(
-  'turnos.html',{now:now, mes: meses[i], patente:patente.toUpperCase() ,year:req.body.year, km:req.body.km})   
+  'turnos.html',{now:now, mes: meses[i], patente:patente.toUpperCase() ,year:req.body.year, km:parseFloat(req.body.km)})   
 });
 
 app.listen(8080);
