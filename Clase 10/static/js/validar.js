@@ -1,5 +1,5 @@
 var morosos =  ['AAA-123','AAC-823','AA-134-CC']
-var RegExp = /^([a-z]{2}|[a-z]{3})(-)\d{3}?((-)[a-z]{2}|\b)$/i
+var RegExp = /^(([a-z]{3})(-)\d{3}\b|[a-z]{2}(-)\d{3}(-)[a-z]{2})$/i
 
 function validar() {
 var patente = document.formulario.patente.value
