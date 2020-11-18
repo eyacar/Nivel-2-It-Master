@@ -24,7 +24,7 @@ nunjucks.configure('views', {
 });
 
 var auth = function(req, res, next) {
-  if (req.session && req.session.level === 1)
+  if (req.session && req.session.level === 2)
     return next();
   else
 	return res.status(401).send("No sos Usuario o No estas autorizado - solicitar permiso de Admin.");
@@ -53,7 +53,7 @@ logeado = true
 }}
 
 if (logeado === true){
-if (req.session.level === 1){
+if (req.session.level === 2){
 res.send(`<h1> ${req.session.user} - Admin logeado con exito</h1> <a href="/pagina1">Ingresar - Administrador</a> <br> <a href="/pagina2">Ingresar a sitio </a>`)   
 }
 else {res.send(`<h1> ${req.session.user}!!! </h1> <a href="/pagina2">Seguir comprando</a>`)}
