@@ -23,6 +23,20 @@ nunjucks.configure('views', {
     express: app
 });
 
+var auth = function(req, res, next) {
+  if (req.session && req.session.level === 1)
+    return next();
+  else
+	return res.status(401).send("No sos Usuario o No estas autorizado - solicitar permiso de Admin.");
+};
+
+var Allusers = function(req, res, next) {
+  if (req.session && req.session.level)
+    return next();
+  else
+	return res.status(401).send("Tu sesion expiró.");
+};
+
 app.get('/', function(req, res) {
 res.render('index.html')    
 });
@@ -34,18 +48,17 @@ app.post('/login', function(req, res) {
 for (dato of datos){
 if ( req.body.user === dato.user && req.body.pass === dato.password){
 req.session.user = req.body.user
-req.session.pass = req.body.pass
 req.session.level = dato.nivel
 logeado = true
 }}
 
 if (logeado === true){
 if (req.session.level === 1){
-res.write(`<h1> ${req.session.user} - Admin logeado con exito</h1> <a href="/pagina1/${req.session.user}">Ingresar - Administrador</a> <a href="/pagina2">Ingresar a sitio </a>`)   
+res.send(`<h1> ${req.session.user} - Admin logeado con exito</h1> <a href="/pagina1">Ingresar - Administrador</a> <br> <a href="/pagina2">Ingresar a sitio </a>`)   
 }
-else {res.write(`<h1> ${req.session.user}!!! </h1> <a href="/pagina2/${req.session.user}">Seguir comprando</a>`)}
+else {res.send(`<h1> ${req.session.user}!!! </h1> <a href="/pagina2">Seguir comprando</a>`)}
 }
-else{res.write(`<h1>${req.body.user} no existe <a href="/">HOME</a>`)}
+else{res.send(`<h1>${req.body.user} no existe <a href="/">HOME</a>`)}
 });
 
 app.get('/logout', function (req, res) {
@@ -53,12 +66,12 @@ app.get('/logout', function (req, res) {
   res.send(`<h1>Sesión cerrada!</h1> <a href="/">HOME</a>`);
 });
 
-app.get('/pagina1/:user', function (req, res) {
-  res.send(`<h1>Administrador ${req.params.user}</h1> <a href="/logout">Logout</a>`);
+app.get('/pagina1', auth, function (req, res) {
+  res.send(`<h1>Administrador ${req.session.user} </h1> <a href="/logout">Logout</a> <br> <a href="/pagina2">Go Shop</a>`);
 });
 
-app.get('/pagina2/:user', function (req, res) {
-  res.send(`<h1>Podes comprar ${req.params.user}</h1> <a href="/logout">Logout</a>`);;
+app.get('/pagina2', Allusers, function (req, res) {
+  res.send(`<h1>Podes comprar ${req.session.user}</h1> <a href="/logout">Logout</a> `);;
 });
 
 
