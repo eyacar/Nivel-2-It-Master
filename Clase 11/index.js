@@ -23,21 +23,6 @@ nunjucks.configure('views', {
     express: app
 });
 
-const datos = [{"user":"dami","password":"1234","nivel":2},
-{"user":"coco","password":"1111","nivel":1}]
-
-var auth = function(req, res, next) {
-
-for (dato of datos){
-  if (req.session && req.session.user === dato.user && req.session.pass === dato.password && req.session.level)
-  return next()
-  else
-	return res.status(401).send("No tienes Usuario. O tu sesion expiró.");
-}};
- 
-
-
-
 app.get('/', function(req, res) {
 res.render('index.html')    
 });
