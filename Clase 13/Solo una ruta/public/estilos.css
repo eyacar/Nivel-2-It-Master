@@ -1,0 +1,19 @@
+body{
+background-color: lightseagreen;
+text-align: center;
+}
+a{color: black;}
+h1{font-size: 50px;}
+ul{list-style: none;padding: 0;font-size: 30px;}
+#home{
+    width: 100%;
+    font-size: 30px;
+}
+#home h2{
+    background-color: lightslategrey;
+    width: 60px;
+    border-radius: 20%;
+    margin: 0;
+}
+h3{color: mediumblue;}
+

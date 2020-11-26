@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{categoria}}</title>
+    <link rel="stylesheet" href="/public/estilos.css">
+</head>
+<body>
+<div id="home">
+<h2><a href="/">🏠</a></h2>
+</div>
+<h1><u>{{categoria}}</u></h1>
+<ul>
+<!-- Opción con lookup -->
+{% for categorias in data %}
+    {% if categorias.categoria === categoria %}
+    <li>
+    <h3>{{ categorias.platos.plato }}</h3>
+    <p>{{ categorias.platos.descripcion }}</p>
+    <h4>Precio: $ {{ categorias.platos.precio }}</h4>
+    {% if categorias.platos.imagen %}
+    <img style="width: 40%;" src="{{ categorias.platos.imagen }}" alt="{{ categorias.platos.plato }}">
+    {% endif %}
+    </li>
+    {% endif %}
+{% endfor %}
+
+<!-- 
+Opción sin lookup
+
+{% for categorias in categorias %}
+{% if categorias.categoria === categoria %}
+{% for platos in platos %}
+{% if platos.IDcategoría === categorias.id %}
+<li>
+    <h3>{{ platos.plato }}</h3>
+    <p>{{ platos.descripcion }}</p>
+    <h4>Precio: $ {{ platos.precio }}</h4>
+    {% if platos.imagen %}
+    <img style="width: 40%;" src="{{ platos.imagen }}" alt="{{ platos.plato }}">
+    {% endif %}
+</li>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+ -->
+</ul>
+    
+</body>
+</html>

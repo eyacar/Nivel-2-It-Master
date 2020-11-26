@@ -1,0 +1,222 @@
+[{
+  "_id": {
+    "$oid": "5fbe5abdc2cf753f165f54b6"
+  },
+  "id": 0,
+  "plato": "Rabas",
+  "descripcion": "Calamares Fritos",
+  "imagen": "https://images.freeimages.com/images/large-previews/748/kalamar-tava-1319334.jpg",
+  "IDcategoría": 1,
+  "precio": 450
+},{
+  "_id": {
+    "$oid": "5fbe5bdac2cf753f165f54b7"
+  },
+  "id": 1,
+  "plato": "Bastones de muzzarella",
+  "descripcion": "bastones de muzzarella fritos remojados en salsa de tomate",
+  "imagen": "https://img.vixdata.io/pd/webp-large/es/sites/default/files/imj/elgranchef/B/Bastones-de-mozzarella-al-%20horno-2.jpg",
+  "IDcategoría": 1,
+  "precio": 480
+},{
+  "_id": {
+    "$oid": "5fbe5f18c2cf753f165f54b8"
+  },
+  "id": 2,
+  "plato": "Variedad de empanadas",
+  "descripcion": "Variedad  de empanadas de copetin",
+  "precio": 560,
+  "imagen": "https://www.recetasnatura.com.ar/sites/default/files/styles/receta_cuerpo/public/empanaditas-de-copetin-caprese.jpg",
+  "IDcategoría": 1
+},{
+  "_id": {
+    "$oid": "5fbe6076c2cf753f165f54b9"
+  },
+  "id": 3,
+  "plato": "Buñuelos de Acelga",
+  "descripcion": "Buñuelos de acelga con dip de barbacoa",
+  "precio": 460,
+  "imagen": "https://elgourmet.s3.amazonaws.com/recetas/cover/bunue_BgymkK45VtZdSW6Nin3XAOzoT1pFH9.png",
+  "IDcategoría": 1
+},{
+  "_id": {
+    "$oid": "5fbe6236c2cf753f165f54ba"
+  },
+  "id": 4,
+  "plato": "COCA",
+  "descripcion": "gaseosa",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe625bc2cf753f165f54bb"
+  },
+  "id": 5,
+  "plato": "COCA LIGTH",
+  "descripcion": "gaseosa",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe6277c2cf753f165f54bc"
+  },
+  "id": 6,
+  "plato": "Z-UP",
+  "descripcion": "gaseosa",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe6293c2cf753f165f54bd"
+  },
+  "id": 7,
+  "plato": "Z-UP LIGHT",
+  "descripcion": "gaseosa",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe62a7c2cf753f165f54be"
+  },
+  "id": 8,
+  "plato": "FANTA",
+  "descripcion": "gaseosa",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe62c6c2cf753f165f54bf"
+  },
+  "id": 9,
+  "plato": "FANTA FREE",
+  "descripcion": "gaseosa",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe62eec2cf753f165f54c0"
+  },
+  "id": 10,
+  "plato": "AGUA",
+  "descripcion": "Agua sin gas",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe6313c2cf753f165f54c1"
+  },
+  "id": 11,
+  "plato": "AGUA GASIFICADA",
+  "descripcion": "Agua con gas",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe6348c2cf753f165f54c2"
+  },
+  "id": 12,
+  "plato": "QUILMES 1L",
+  "descripcion": "Cerveza quilmes de litro",
+  "precio": 150,
+  "IDcategoría": 2
+},{
+  "_id": {
+    "$oid": "5fbe656ec2cf753f165f54c3"
+  },
+  "id": 13,
+  "plato": "BONDIOLA BRASEADA",
+  "descripcion": "Bondiola braseada con salsa barbacoa, acompañada de papas fritas, pure o ensalada",
+  "precio": 650,
+  "imagen": "https://www.apurate.com.ar/images/ofertas/260/paparazzi-bondiola.jpeg",
+  "IDcategoría": 3
+},{
+  "_id": {
+    "$oid": "5fbe6617c2cf753f165f54c4"
+  },
+  "id": 14,
+  "plato": "PASTEL DE PAPAS",
+  "descripcion": "Plato tipico argentino, pastel de papas con carne picada",
+  "precio": 750,
+  "imagen": "https://vinomanos.com/wp-content/uploads/2020/05/receta-de-pastel-de-papas.jpg",
+  "IDcategoría": 3
+},{
+  "_id": {
+    "$oid": "5fbe670ac2cf753f165f54c5"
+  },
+  "id": 15,
+  "plato": "FIDEOS A LA BOLOÑESA",
+  "descripcion": "Fideos al fierrito con salsa de bolognesa",
+  "precio": 620,
+  "imagen": "https://images-gmi-pmc.edge-generalmills.com/184c213b-7ddf-4eaf-b144-e98007474d77.jpg",
+  "IDcategoría": 3
+},{
+  "_id": {
+    "$oid": "5fbe67c9c2cf753f165f54c6"
+  },
+  "id": 16,
+  "plato": "ÑOQUIS DE CALABAZA",
+  "descripcion": "Ñoquis de calabaza acompañados con salsa fileto",
+  "precio": 630,
+  "imagen": "https://pxb.cdn.ciudadanodiario.com.ar/ciudadano/012020/1579263677865/%C3%B1oquis-calabaza.webp?cw=984&ch=553&extw=jpg",
+  "IDcategoría": 3
+},{
+  "_id": {
+    "$oid": "5fbe68fcc2cf753f165f54c7"
+  },
+  "id": 17,
+  "plato": "MILANESA NAPOLITANA",
+  "descripcion": "Milanesa napolitana, acompañada con pure, ensalada o papas fritas",
+  "precio": 650,
+  "imagen": "https://cuponesmdp.com/fotos/n/560d35828f42cb3ad1852c5f997f0fa8.jpg",
+  "IDcategoría": 3
+},{
+  "_id": {
+    "$oid": "5fbe69b6c2cf753f165f54c8"
+  },
+  "id": 18,
+  "plato": "HAMBURGUESA COMPLETA",
+  "descripcion": "Hamburgues completa con 250gr. de carne vacuna camopañada de papas fritas y un dip de mayonesa",
+  "precio": 760,
+  "imagen": "https://www.antojoentucocina.com/wp-content/uploads/2019/09/hamburguesa-completa-1024x1024.jpg",
+  "IDcategoría": 3
+},{
+  "_id": {
+    "$oid": "5fbe6afbc2cf753f165f54c9"
+  },
+  "id": 19,
+  "plato": "HAMBURGUESA DE CERDO",
+  "descripcion": "Hamburgues de bondiola braseada camopañada de papas fritas y un dip de mayonesa",
+  "precio": 850,
+  "imagen": "https://rankea.com.ar/wp-content/uploads/2019/08/fierro-y-cruz-bis2.jpeg",
+  "IDcategoría": 3
+},{
+  "_id": {
+    "$oid": "5fbe6bb5c2cf753f165f54ca"
+  },
+  "id": 20,
+  "plato": "VIGILANTE",
+  "descripcion": "Postre tipico Argentino, dulce de batata y queso",
+  "precio": 450,
+  "imagen": "https://img-global.cpcdn.com/recipes/recipes_46135_v1393353305_receta_foto_00046135/751x532cq70/postre-tipico-argentino-vigilante-foto-principal.jpg",
+  "IDcategoría": 4
+},{
+  "_id": {
+    "$oid": "5fbe6c33c2cf753f165f54cb"
+  },
+  "id": 21,
+  "plato": "ALMENDRADO CHARLOTTE",
+  "descripcion": "Almendrado helado con salsa de chocolate caliente",
+  "precio": 410,
+  "imagen": "https://media-cdn.tripadvisor.com/media/photo-s/08/af/9d/8a/piuke-restaurante.jpg",
+  "IDcategoría": 4
+},{
+  "_id": {
+    "$oid": "5fbe6d2ec2cf753f165f54cc"
+  },
+  "id": 22,
+  "plato": "PANQUEQUE",
+  "descripcion": "Panqueques, pueden ser de dulce de leche, de crema o mixtos",
+  "precio": 450,
+  "imagen": "http://4.bp.blogspot.com/-4wG6nGXO6kE/Uff06HpYK7I/AAAAAAAAARs/hXp9w-Vs-d0/s400/panqueques-de-dulce-de-leche.jpg",
+  "IDcategoría": 4
+}]

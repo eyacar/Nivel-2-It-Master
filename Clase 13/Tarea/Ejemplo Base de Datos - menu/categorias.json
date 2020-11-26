@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "5fbe58c6c2cf753f165f54b1"
+  },
+  "id": 1,
+  "categoria": "APPETIZER"
+},{
+  "_id": {
+    "$oid": "5fbe5905c2cf753f165f54b2"
+  },
+  "id": 2,
+  "categoria": "DRINK"
+},{
+  "_id": {
+    "$oid": "5fbe5924c2cf753f165f54b3"
+  },
+  "id": 3,
+  "categoria": "MAIN DISHES"
+},{
+  "_id": {
+    "$oid": "5fbe596fc2cf753f165f54b4"
+  },
+  "id": 4,
+  "categoria": "DESSERT"
+}]

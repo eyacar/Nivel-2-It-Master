@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% for plato in platos %}
+        {% if plato.id === id %}
+        {{plato.plato}}
+        {% endif %}
+        {% endfor %} 
+    </title>
+    <link rel="stylesheet" href="/public/estilos.css">
+</head>
+<body>
+<div id="home">
+{% for plato in platos %}
+{% if plato.id === id %}
+{% for categorias in categorias %}
+{% if plato.IDcategoría === categorias.id %}
+<h2><a href="/categoria/{{categorias.categoria}}">⬅</a></h2>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+</div>
+{% for plato in platos %}
+{% if plato.id === id %}
+<h1><u>{{plato.plato}}</u></h1>
+<p>Descripción: {{ plato.descripcion }}</p>
+<h4>Precio: $ {{ plato.precio }}</h4>
+{% if plato.imagen %}
+<img style="width: 40%;" src="{{ plato.imagen }}" alt="{{ plato.plato }}">
+{% endif %}
+{% endif %}
+{% endfor %}    
+</body>
+</html>
