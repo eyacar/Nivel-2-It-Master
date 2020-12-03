@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>      
+      body {font-size: 18px; font-family: Verdana; margin: 0;}
+      form {padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      input{box-sizing: border-box; }
+      form input { padding: 12px; width: 35%; margin-right: 1%; }
+      form input[type="button"] { width: 10%;}
+      #mensajes { list-style-type: none; margin: 0; padding: 0; }
+      #mensajes li { padding: 10px; border-bottom:1px solid silver;list-style:none;}
+      
+    </style>
+	<script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <ul id="mensajes"></ul>
+    <form>
+      <input id="u" autocomplete="off" placeholder="Usuario" />
+      <input id="m" autocomplete="off" placeholder="mensaje"  /><input type="button" value="Enviar" id="btn" />
+    </form>
+  </body>
+  <script>    
+  // Inicializamos
+    const socket = io();
+    // Enviamos la info
+    document.getElementById('btn').addEventListener('click', () =>{         
+    let u = document.getElementById("u").value;              
+    let m = document.getElementById("m").value;
+    var message = ""  
+    var data = ''
+    const invalidwords = ["eze","mnfj","ppyft","avdeaere","abdjk"]
+    for(word of invalidwords){    
+    if(m.toLocaleLowerCase() === word.toLocaleLowerCase()){message = '****'}
+    }
+  if(message.length > 0){data="<strong>"+u+"</strong>:"+message;}
+  else{data = "<strong>"+u+"</strong>:"+m;}
+    socket.emit('chat message', data);      
+     });   
+
+    // Recibimos la info
+      socket.on('chat message', (msg) => { 
+        document.getElementById('mensajes').insertAdjacentHTML('beforeend', '<li>'+msg+'</li>');
+      });      
+  </script>   
+</html>
