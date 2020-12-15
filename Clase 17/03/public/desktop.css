@@ -1,0 +1,10 @@
+body{
+background-color: lightseagreen;
+text-align: center;
+}
+#contenedor{width: 100%;display: flex;justify-content: space-around;
+box-sizing: border-box;
+flex-wrap: wrap;
+}
+#img1{width: 90%;}
+img{width: 40%;margin-top: 3%;}
