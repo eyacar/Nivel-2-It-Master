@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{text-align: center;background-color: lightsalmon;}
+</style>
+</head>
+<body onload="init()">
+<div id="welcome">
+</div>
+<script>
+var date = new Date();
+function init(){
+const fecha = localStorage.getItem("fecha")
+if(!fecha){
+document.getElementById('welcome').innerHTML = '<h1><strong><u>Bienvenido!!!</u></strong></h1>'
+localStorage.setItem("fecha",date);
+}
+else {
+document.getElementById('welcome').innerHTML = `<h1><strong><u>Bienvenido nuevamente</u></strong></h1><h2>Ultima conexión</h2><h2>${date}</h2>`
+localStorage.setItem("fecha",date);
+}
+}
+</script>
+</body>
+</html>

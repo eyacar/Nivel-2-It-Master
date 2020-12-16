@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <style>
+        #contenedor{
+            width:50%;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+<div id="contenedor">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    <script>
+var datos = [{provincia:'Buenos Aires',poblacion:17541141},
+{provincia:'CABA',poblacion:3075646},
+{provincia:'Catamarca',poblacion:415438},
+{provincia:'Chaco',poblacion:1204541},
+{provincia:'Chubut',poblacion:618994},
+{provincia:'Córdoba',poblacion:3760450},
+{provincia:'Corrientes',poblacion:1120801},
+{provincia:'Entre Ríos',poblacion:1385961},
+{provincia:'Formosa',poblacion:605193},
+{provincia:'Jujuy',poblacion:770881},
+{provincia:'La Pampa',poblacion:358428},
+{provincia:'La Rioja',poblacion:393531},
+{provincia:'Mendoza',poblacion:1990338},
+{provincia:'Misiones',poblacion:1261294}
+]
+var orden = datos.sort((a, b) => b.poblacion - a.poblacion);
+var label = []
+var datos = []
+for(i=0;i<5;i++){
+label.push(orden[i].provincia)
+datos.push(orden[i].poblacion)
+}
+
+var uno = `rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)}, 0.2)`
+var dos = `rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)}, 0.2)`
+var tres = `rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)}, 0.2)`
+var cuatro = `rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)}, 0.2)`
+var cinco = `rgba(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)}, 0.2)`
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: label,
+            datasets: [{
+                label: 'Grafico de población',
+                data: datos,
+                backgroundColor: [
+                    uno,
+                    dos,
+                    tres,
+                    cuatro,
+                    cinco
+                ],
+                borderColor: [
+                uno.replace('0.2', '1'),
+                dos.replace('0.2', '1'),
+                tres.replace('0.2', '1'),
+                cuatro.replace('0.2', '1'),
+                cinco.replace('0.2', '1')
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    </script>  
+</body>
+</html>
