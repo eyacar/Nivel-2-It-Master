@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+</head>
+<body>
+<h1>Agrega un libro</h1>
+<form id="form">
+<div class="input-group mb-3">
+<span class="input-group-text" id="inputGroup-sizing-default">ISBN</span>
+<input id="isbn" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+<div class="input-group mb-3">
+<span class="input-group-text" id="inputGroup-sizing-default">Titulo</span>
+<input id="title" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+<div class="input-group mb-3">
+<span class="input-group-text" id="inputGroup-sizing-default">Año de Publicación</span>
+<input id="year" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+
+<select class="form-select" aria-label="Default select example" id="autorS" onchange="select('autor')">
+    <option value="0" selected>Autor - Que cantidad?</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<div class="input-group mb-3" id="autor">
+</div>
+
+<select class="form-select" aria-label="Default select example" id="generoS" onchange="select('genero')">
+    <option value="0" selected>Genero - Que cantidad?</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<div class="input-group mb-3" id="genero">
+</div>
+<button type="button" class="btn btn-success" onclick="Add()">Add</button>
+</form>
+<div id="warning"></div>
+<a id="a" href="index.html" class="btn btn-warning">Home</a>
+<script>
+function select(data){
+const elegido = document.getElementById(data)
+elegido.innerHTML = ''
+const selected = document.getElementById(data+'S').value
+for(i=1; i<=selected;i++){
+elegido.insertAdjacentHTML('afterbegin',`<span class="input-group-text" id="inputGroup-sizing-default">${data}</span>
+<input type="text" id="${data+i}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">`)
+}
+}
+function Add(){
+const genero = document.getElementById('generoS').value
+const autor = document.getElementById('autorS').value
+const generos = []
+const autores = []
+for(i=1; i<=genero;i++){generos.push(document.getElementById(`genero${i}`).value)}
+for(i=1; i<=autor;i++){autores.push(document.getElementById(`autor${i}`).value)}
+const isbn = document.getElementById('isbn').value
+const title = document.getElementById('title').value
+const year = document.getElementById('year').value
+const re = /^\d{4}$/;
+var patt = new RegExp(re);
+if (generos.length>0 & autores.length>0 & isbn.length>0 & title.length>0 & patt.test(year)=== true){
+console.log(isbn);
+document.getElementById('warning').innerHTML = ''
+var db = new Dexie("Libreria");
+db.version(1).stores({
+Libros: "isbn"
+});
+db.Libros.add({isbn:isbn,title: title, year:year,genero:generos,autor:autores});
+document.getElementById("form").reset();
+document.getElementById("genero").innerHTML =""
+document.getElementById("autor").innerHTML =""
+document.getElementById('warning').innerHTML = `<h1 style="color:green">Insertado con exito</h1>`
+}
+else if(patt.test(year)=== false){document.getElementById('warning').innerHTML = `<h1 style="color:red">El año debe tener 4 digitos</h1>`}
+else{document.getElementById('warning').innerHTML = `<h1 style="color:red">Debe completar todos los campos</h1>`}
+}
+</script>
+</body>
+</html>

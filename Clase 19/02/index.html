@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <title>Document</title>
+</head>
+<body onload="Do()"> 
+<script>
+function Do(){
+fetch('https://api-book-gnu4jcl16.vercel.app/api')
+  .then(response => response.json())
+  .then(data => {
+for(i=0;i<5;i++){
+var db = new Dexie("Libreria");
+db.version(1).stores({
+Libros: "isbn"
+});
+db.Libros.add({isbn:data[i].isbn,title: data[i].title, year:data[i].publishedDate.slice(0,4),genero:data[i].categories,autor:data[i].authors});
+console.log( data[i].title+" - exito")
+}
+  });}
+</script>
+</body>
+</html>

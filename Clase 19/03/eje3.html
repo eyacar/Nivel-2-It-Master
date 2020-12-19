@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <title>Google Maps JavaScript API v3 Example: Complex Icons</title>
+    <style>
+  html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map-canvas, #map_canvas {
+  height: 100%;
+}
+
+@media print {
+  html, body {
+    height: auto;
+  }
+
+  #map_canvas {
+    height: 650px;
+  }
+}
+</style>
+    <script>
+      function initialize() {
+        var mapOptions = {
+          zoom: 4,
+          center: new google.maps.LatLng(40.7127837,-74.0059413),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        setMarkers(map, lugares);
+      }
+var lugares = [];
+fetch('https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json')
+  .then(response => response.json())
+  .then(data =>{
+    for(i=0;i<10;i++){lugares.push([data[i].city, data[i].latitude,data[i].longitude, i+1])} 
+  })
+  .then(data=>{initialize()})
+  
+  function setMarkers(map, locations) {
+        var image = {
+          size: new google.maps.Size(32, 32),
+          origin: new google.maps.Point(0,0),
+          anchor: new google.maps.Point(0, 32)
+        };
+        for (var i = 0; i < locations.length; i++) {
+          var loc = locations[i];
+          var myLatLng = new google.maps.LatLng(loc[1], loc[2]);
+          var marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,              
+              title: loc[0],
+              zIndex: loc[3]
+          });
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
